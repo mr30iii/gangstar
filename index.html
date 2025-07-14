@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gangstar Collab - Web 2.0 Style</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('bg_tile.jpg');
+        }
+        
+        #container {
+            width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        
+        #header {
+            background: linear-gradient(to bottom, #333333, #111111);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #ff9900;
+        }
+        
+        #header h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 4px #000;
+            margin: 0;
+            font-family: "Impact", sans-serif;
+        }
+        
+        #header h2 {
+            font-size: 18px;
+            margin: 5px 0 0 0;
+            color: #ff9900;
+            font-style: italic;
+        }
+        
+        #nav {
+            background-color: #222;
+            padding: 5px 0;
+        }
+        
+        #nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        
+        #nav li {
+            display: inline;
+            margin: 0 10px;
+        }
+        
+        #nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        #nav a:hover {
+            background-color: #ff9900;
+            color: black;
+        }
+        
+        #content {
+            padding: 20px;
+            min-height: 400px;
+        }
+        
+        .member {
+            float: left;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .member img {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #ff9900;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .clear {
+            clear: both;
+        }
+        
+        #footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            border-top: 1px solid #444;
+        }
+        
+        .button {
+            background: linear-gradient(to bottom, #ffcc00, #ff9900);
+            border: 1px solid #e69500;
+            color: black;
+            padding: 5px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        .button:hover {
+            background: linear-gradient(to bottom, #ff9900, #cc7700);
+        }
+        
+        .glow {
+            text-shadow: 0 0 5px #ff9900;
+        }
+
+        /* Additional Hacker-style CSS */
+        .terminal {
+            background-color: #000;
+            color: #0f0;
+            font-family: "Courier New", monospace;
+            padding: 15px;
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .command {
+            color: #0ff;
+            font-weight: bold;
+        }
+        
+        .cursor {
+            animation: blink 1s infinite;
+            background-color: #0f0;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .matrix-text {
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+        }
+        
+        .hacker-button {
+            background: linear-gradient(to bottom, #111, #000);
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 5px 15px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        
+        .hacker-button:hover {
+            background: linear-gradient(to bottom, #000, #111);
+            box-shadow: 0 0 10px #0f0;
+            color: #0ff;
+        }
+        
+        .binary-bg {
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="20" font-family="monospace" font-size="10" fill="%2300ff0044">101010</text><text x="30" y="40" font-family="monospace" font-size="10" fill="%2300ff0044">010101</text><text x="50" y="60" font-family="monospace" font-size="10" fill="%2300ff0044">101010</text><text x="70" y="80" font-family="monospace" font-size="10" fill="%2300ff0044">010101</text></svg>');
+        }
+        
+        .hacker-glow {
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+            color: #0f0 !important;
+        }
+        
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scanlines:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(
+                    rgba(0, 255, 0, 0.03) 50%, 
+                    rgba(0, 0, 0, 0.25) 50%
+                );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+        
+        .status-bar {
+            background-color: #000;
+            color: #0f0;
+            padding: 5px 10px;
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            border-top: 1px solid #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>GANGSTAR COLLAB</h1>
+            <h2>Web 2.0 oF # TWO !BROTHERSZZ!</h2>
+        </div>
+        
+        <div id="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Members</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Join Us</a></li>
+            </ul>
+        </div>
+        
+        <div id="content">
+            <h2 class="glow">Welcome to Gangstar Collab!</h2>
+            <p>The hottest Web 2.0 collaboration # TWO !BROTHERSZZ! for digital gangstars. Connect with other hustlers, showcase your projects, and build your online empire.</p>
+            
+            <div class="terminal scanlines">
+                <span class="command">root@gangstar-collab:~$</span> ./start_empire.sh<span class="cursor">_</span>
+                <div class="status-bar">STATUS: SYSTEM_ACTIVE | USERS: 2 | THREAT_LEVEL: 0x0F</div>
+            </div>
+            
+            <center>
+                <a href="#" class="button">SIGN UP NOW (FREE)</a>
+                <a href="#" class="hacker-button">DARK MODE ACCESS</a>
+                <a href="#" class="button">VIEW MEMBER SPOTLIGHT</a>
+            </center>
+            
+            <h3>Featured members:</h3>
+            
+            <div class="member binary-bg">
+                <img src="sycho-love.jpg" alt="DJ Webz">
+                <h4><i><b class="hacker-glow">LOVELY-SYCHOO</b></i></h4>
+                <p><i>SWEET PERSON & LOVELY GUY</i></p>
+                <a href="#" class="hacker-button">Profile</a>
+            </div>
+            
+            <div class="member binary-bg">
+                <img src="LOVELY-RAJA.jpg" alt="Code Killa">
+                <h4><i><b class="hacker-glow">LOVELY-RAJA</b></i></h4>
+                <p>SWEET-BOY</p>
+                <a href="#" class="hacker-button">Profile</a>
+            </div>
+            
+            <div class="member binary-bg">
+                <img src="sycho-velon.jpg" alt="">
+                <h4><i><b class="hacker-glow">SYCHOO-😈</b></i></h4>
+                <p>DARK-WEB =OWNER</p>
+                <a href="#" class="hacker-button">Profile</a>
+            </div>
+            
+            <div class="member binary-bg">
+                <img src="RAJA-VELON.jpg" alt="Script Dogg">
+                <h4><i><b class="hacker-glow">RAJA-😈</b></i></h4>
+                <p>H4CK1NG-PYTHON-SCRIPT = OWNER</p>
+                <a href="#" class="hacker-button">Profile</a>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <h3 class="matrix-text">Latest Projects:</h3>
+            <ul class="matrix-text">
+                <li><i><strong>"STYLE"</strong></i> - <b>BEST-FRIENDS</b></li>
+                <li><i><strong>"LIFE"</strong></i> - <b>BROTHERS</b></li>
+                <li><i><strong>"WORK"</strong></i> - <b>FU*KING</b></li>
+            </ul>
+            
+            <div class="terminal">
+                <span class="command">root@gangstar-collab:~$</span> ./connect_brothers.sh<span class="cursor">_</span>
+                <div class="status-bar">CONNECTION: ESTABLISHED | ENCRYPTION: 256-bit | BANDWIDTH: 9001Mbps</div>
+            </div>
+        </div>
+        
+        <div id="footer">
+            &copy; 2007 Gangstar Collab | Best viewed in Firefox 2.0 at 1024x768 | <a href="#" style="color:#ff9900;">Terms</a> | <a href="#" style="color:#ff9900;">Privacy</a>
+            <div class="status-bar">SYSTEM STATUS: ONLINE | USERS: 1337 | LAST UPDATE: <span id="datetime"></span></div>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to show current date/time in footer
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById('datetime').textContent = now.toLocaleString();
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>
